@@ -1,7 +1,7 @@
-import game.cell
+import solver.game.cell
 
 
-class group:
+class Group:
     def __init__(self):
         self.cells = []
         self.id = 0
@@ -11,13 +11,13 @@ class group:
             cell.remove_poss_val(val)
 
 
-class Row(group):
+class Row(Group):
     pass
 
 
-class Column(group):
+class Column(Group):
     pass
 
 
-class Box(group):
+class Box(Group):
     pass

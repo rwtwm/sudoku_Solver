@@ -1,4 +1,4 @@
 .idea 
 venv
 Thoughts.txt
-
+*pycache*

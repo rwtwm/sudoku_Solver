@@ -1,5 +1,5 @@
-from cell import Cell
-from groups import Row, Column, Box
+from solver.game.cell import Cell
+from solver.game.groups import Row, Column, Box
 
 class Grid():
     '''
@@ -49,6 +49,5 @@ class Grid():
         for y in range(0, 9):
             row_string = ""
             for x in range(0, 9):
-                row_string = row_string + str(self.rows[y][x]) + " "
+                row_string = row_string + str(self.rows[y].cells[x].conf_val) + " "
             print(row_string)
-            print("\n")

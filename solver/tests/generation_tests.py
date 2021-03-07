@@ -1,5 +1,5 @@
 import unittest
-import game.grid as grid
+import solver.game.grid as grid
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
