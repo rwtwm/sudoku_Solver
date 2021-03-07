@@ -1,5 +1,5 @@
 import unittest
-import code.game.cell as cell
+import game.cell as cell
 
 
 class BoxTests(unittest.TestCase):
@@ -28,3 +28,7 @@ class BoxTests(unittest.TestCase):
     def test_6(self):
         box = cell.find_box(8, 9)
         self.assertEqual(box, 9)
+
+
+if __name__ == '__main__':
+    unittest.main()

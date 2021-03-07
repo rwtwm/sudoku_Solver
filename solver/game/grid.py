@@ -1,5 +1,5 @@
-from code.game.cell import Cell
-from code.game.groups import Row, Column, Box
+from cell import Cell
+from groups import Row, Column, Box
 
 class Grid():
     '''
@@ -11,29 +11,44 @@ class Grid():
         self.rows = []
         self.columns = []
         self.boxes = []
+        self.populate_empty_cells()
+        self.generate_groups()
+
 
     def populate_empty_cells(self):
-        for x in range(1, 10):
-            for y in range(1, 10):
+        for x in range(0, 9):
+            for y in range(0, 9):
                 self.cells.append(Cell(x, y))
 
     def generate_groups(self):
         for cell in self.cells:
+            self.create_rows()
+            self.create_columns()
+            self.create_boxes()
             self.rows[cell.row].cells.append(cell)
             self.columns[cell.col].cells.append(cell)
             self.boxes[cell.box].cells.append(cell)
 
     def create_rows(self):
-        for y in range(1, 10):
+        for y in range(0, 9):
             self.rows.append(Row())
 
     def create_columns(self):
-        for x in range(1, 10):
+        for x in range(0, 9):
             self.columns.append(Column())
 
     def create_boxes(self):
-        for y in range(1, 10):
-            self.columns.append(Column())
+        for y in range(0, 9):
+            self.boxes.append(Box())
+
+    #Returns a cell, by its xy coordinates
+    def get_cell(self, x, y):
+        return self.columns[x][y]
 
     def print_grid(self):
-        pass
+        for y in range(0, 9):
+            row_string = ""
+            for x in range(0, 9):
+                row_string = row_string + str(self.rows[y][x]) + " "
+            print(row_string)
+            print("\n")

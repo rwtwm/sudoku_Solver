@@ -1,4 +1,4 @@
-import code.game.cell
+import game.cell
 
 
 class group:
