@@ -42,8 +42,8 @@ class Grid():
             self.boxes.append(Box())
 
     #Returns a cell, by its xy coordinates
-    def get_cell(self, x, y):
-        return self.columns[x][y]
+    def get_cell(self, x, y) -> Cell:
+        return self.columns[x].cells[y]
 
     def print_grid(self):
         for y in range(0, 9):
