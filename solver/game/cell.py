@@ -37,4 +37,13 @@ class Cell:
         if val in self.poss_vals:
             self.poss_vals.remove(val)
 
+    def __str__(self):
+        part1 = "cell coordinate: ({0},{1}). ".format(self.col, self.row)
+        if self.conf_val != 0:
+            part2 = "val = {}.".format(self.conf_val)
+        else:
+            part2 = "possible vals: " + str(self.poss_vals)
+        return part1 + part2
+
+
 

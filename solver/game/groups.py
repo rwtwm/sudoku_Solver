@@ -10,6 +10,14 @@ class Group:
         for cell in self.cells:
             cell.remove_poss_val(val)
 
+    # Returns a list of all confirmed values in the group
+    def get_solved(self):
+        in_group = []
+        for cell in self.cells:
+            if cell.conf_val != 0:
+                in_group.append(cell.conf_val)
+        return in_group
+
 
 class Row(Group):
     pass

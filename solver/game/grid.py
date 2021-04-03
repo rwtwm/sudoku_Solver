@@ -49,5 +49,10 @@ class Grid():
         for y in range(0, 9):
             row_string = ""
             for x in range(0, 9):
-                row_string = row_string + str(self.rows[y].cells[x].conf_val) + " "
+                if (x+1) % 3 == 0 and x < 8:
+                    row_string = row_string + str(self.rows[y].cells[x].conf_val) + " | "
+                else:
+                    row_string = row_string + str(self.rows[y].cells[x].conf_val) + " "
             print(row_string)
+            if (y+1) % 3 == 0 and y < 8:
+                print("---------------------")
