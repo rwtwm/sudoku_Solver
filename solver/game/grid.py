@@ -14,7 +14,6 @@ class Grid():
         self.populate_empty_cells()
         self.generate_groups()
 
-
     def populate_empty_cells(self):
         for x in range(0, 9):
             for y in range(0, 9):
@@ -31,17 +30,38 @@ class Grid():
 
     def create_rows(self):
         for y in range(0, 9):
-            self.rows.append(Row())
+            self.rows.append(Row(y))
 
     def create_columns(self):
         for x in range(0, 9):
-            self.columns.append(Column())
+            self.columns.append(Column(x))
 
     def create_boxes(self):
-        for y in range(0, 9):
-            self.boxes.append(Box())
+        for b in range(0, 9):
+            self.boxes.append(Box(b))
 
-    #Returns a cell, by its xy coordinates
+    def get_box(self, b):
+        send_box = self.boxes[b]
+        if send_box.id != b:
+            # Putting this in as a flag if lists aren't order safe.
+            raise ValueError("Id doesn't match index")
+        return send_box
+
+    def get_row(self, y):
+        send_row = self.rows[y]
+        if send_row.id != y:
+            # Putting this in as a flag if lists aren't order safe.
+            raise ValueError("Id doesn't match index")
+        return send_row
+
+    def get_col(self, x):
+        send_col = self.columns[x]
+        if send_col.id != x:
+            # Putting this in as a flag if lists aren't order safe.
+            raise ValueError("Id doesn't match index")
+        return send_col
+
+    # Returns a cell, by its xy coordinates
     def get_cell(self, x, y) -> Cell:
         return self.columns[x].cells[y]
 

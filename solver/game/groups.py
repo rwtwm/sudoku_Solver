@@ -2,9 +2,9 @@ import solver.game.cell
 
 
 class Group:
-    def __init__(self):
+    def __init__(self, gid):
         self.cells = []
-        self.id = 0
+        self.id = gid
 
     def remove_possible(self, val):
         for cell in self.cells:
@@ -17,6 +17,12 @@ class Group:
             if cell.conf_val != 0:
                 in_group.append(cell.conf_val)
         return in_group
+
+    # Note this takes a list. Use get solved to guarantee a list,
+    # or wrap a single value in a list before submission
+    def clear_possibles(self, poss_list):
+        for val in poss_list:
+            self.remove_possible(val)
 
 
 class Row(Group):
